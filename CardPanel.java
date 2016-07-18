@@ -25,5 +25,6 @@ class CardPanel extends JPanel {
         cardDrawer.DrawCard(20+(cardDrawer.CARD_WIDTH+10)*2, 20, new Card(Card.Suit.HEART, Card.Value.JACK),g);
         cardDrawer.DrawCard(20+(cardDrawer.CARD_WIDTH+10)*3, 20, new Card(Card.Suit.SPADE, Card.Value.QUEEN),g);
         cardDrawer.DrawCard(20+(cardDrawer.CARD_WIDTH+10)*4, 20, new Card(Card.Suit.HEART, Card.Value.SEVEN),g);
+        cardDrawer.DrawCard(20+(cardDrawer.CARD_WIDTH+10)*5, 20, new Card(Card.Suit.DIAMOND, Card.Value.JACK),g);
     }
 }

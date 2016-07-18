@@ -16,7 +16,7 @@ public class CardDrawer {
 	private final int DELTA = (int) (FONT_SIZE / 2.5);
 	
 	private final String[] valueSymbols = {"1","2","3","4","5","6","7","8","9","10","J","Q","K","A"};
-	private final char[] suitSymbols = {'♥', '♦', '♠', '♣'};
+	private final char[] suitSymbols = {'♣', '♦', '♠', '♥'};
 	
 	Graphics graphics;
 	
@@ -41,6 +41,7 @@ public class CardDrawer {
 		Font font = new Font(g.getFont().getFontName(), g.getFont().getStyle(), FONT_SIZE);
 		g.setFont(font);
 		g.drawString(String.valueOf(suitSymbols[card.suit.ordinal()]),x + CARD_WIDTH / 2 - DELTA, y  + CARD_HEIGHT / 2 + DELTA);
+
 		//putting font back
 		g.setFont(fontBuffer);
 		
