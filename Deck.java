@@ -47,8 +47,7 @@ public class Deck {
                 created.add(new Card(Value.values()[i],Suit.values()[j]));
             }
         }
-        System.out.println("d");
-        System.out.println("123::c"+created.size());
+
         return created;
     }
 }
