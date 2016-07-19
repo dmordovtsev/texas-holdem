@@ -31,16 +31,21 @@ public class CardDrawer {
 		//drawing card fill
 		g.setColor(Color.white);
 		g.fillRoundRect(x, y, CARD_WIDTH, CARD_HEIGHT, CARD_ROUND, CARD_ROUND);
+		System.out.println("Round rect is fill");
 		//drawing card outline
 		g.setColor(Color.black);
 		g.drawRoundRect(x, y, CARD_WIDTH, CARD_HEIGHT, CARD_ROUND, CARD_ROUND);
 		//drawing card suit and value
-		if(card.suit.ordinal() % 2 == 0) g.setColor(Color.black); else g.setColor(Color.red);
-		g.drawString(valueSymbols[card.value.ordinal()], x+5, y+15);
-		g.drawString(valueSymbols[card.value.ordinal()], x+CARD_WIDTH-12, y+CARD_HEIGHT-5);
+		if(card.SUIT.ordinal() % 2 == 0){
+            g.setColor(Color.black);
+        } else {
+            g.setColor(Color.red);
+        }
+		g.drawString(valueSymbols[card.VALUE.ordinal()], x+5, y+15);
+		g.drawString(valueSymbols[card.VALUE.ordinal()], x+CARD_WIDTH-12, y+CARD_HEIGHT-5);
 		Font font = new Font(g.getFont().getFontName(), g.getFont().getStyle(), FONT_SIZE);
 		g.setFont(font);
-		g.drawString(String.valueOf(suitSymbols[card.suit.ordinal()]),x + CARD_WIDTH / 2 - DELTA, y  + CARD_HEIGHT / 2 + DELTA);
+		g.drawString(String.valueOf(suitSymbols[card.SUIT.ordinal()]),x + CARD_WIDTH / 2 - DELTA, y  + CARD_HEIGHT / 2 + DELTA);
 
 		//putting font back
 		g.setFont(fontBuffer);
@@ -48,7 +53,7 @@ public class CardDrawer {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		TexturedPanel tp = new TexturedPanel(true, "/src/images/texture.jpg", 800, 600);
+		TexturedPanel tp = new TexturedPanel(true, "/images/texture.jpg", 800, 600);
 		CardPanel panel2 = new CardPanel();
 		tp.panel.add(panel2);
 	}

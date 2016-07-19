@@ -4,8 +4,8 @@ import java.lang.*;
 
 public class Deck {
 
-    public enum Suit {HEARTS, DIAMONDS, CLOTHES, SPADES};
-    public enum Value {ZERO,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,TEN,JACK,QUEEN,KING,ACE};
+    public enum SUIT {HEARTS, DIAMONDS, CLOTHES, SPADES};
+    public enum VALUE {ZERO,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,TEN,JACK,QUEEN,KING,ACE};
     private Stack <Card> shuffledDeck;
     public static ArrayList<Card> sorted = create();
 
@@ -42,9 +42,9 @@ public class Deck {
     }
     public static  ArrayList<Card> create () {
         ArrayList<Card> created=new ArrayList();
-        for(int i=Value.TWO.ordinal();i<=Value.ACE.ordinal();i++){
-            for(int j=Suit.HEARTS.ordinal();j<=Suit.SPADES.ordinal();j++){
-                created.add(new Card(Value.values()[i],Suit.values()[j]));
+        for(int i=VALUE.TWO.ordinal();i<=VALUE.ACE.ordinal();i++){
+            for(int j=SUIT.HEARTS.ordinal();j<=SUIT.SPADES.ordinal();j++){
+                created.add(new Card(VALUE.values()[i],SUIT.values()[j]));
             }
         }
 

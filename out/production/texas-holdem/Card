@@ -1,0 +1,15 @@
+
+public class Card {
+
+
+    public Deck.Suit suit;
+    public Deck.Value value;
+
+    public Card( Deck.Value value, Deck.Suit suit)
+    {
+        this.suit = suit;
+        this.value = value;
+    }
+    public Card(){
+
+    }
