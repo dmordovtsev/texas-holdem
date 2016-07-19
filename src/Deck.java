@@ -26,10 +26,11 @@ public class Deck {
 
     public void shuffle(){
         ArrayList<Card> sortedDeck = new ArrayList<Card>();
-        for (int i = 0; i < 52; i++) {
+        sortedDeck.addAll(sorted);
+        /*for (int i = 0; i < 52; i++) {
             sortedDeck.add(sorted.get(i));
         }
-
+*/
         int r;
         Random random = new Random();
 

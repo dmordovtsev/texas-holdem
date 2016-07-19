@@ -16,10 +16,12 @@ class CardPanel extends JPanel {
 		super.setPreferredSize(new Dimension(500, 150));
 		super.setBackground(new Color(0,0,0,64));
 	}
-	
-    @Override
-    public void paintComponent(Graphics g) {
+
+    public void paintComponent(Graphics g){//, CardSet cardSet) {
         super.paintComponent(g);
+       /* for (int i = 0; i < cardSet.getCards().size(); i++) {
+            cardDrawer.DrawCard((20+cardDrawer.CARD_WIDTH+10)*i, 20, cardSet.getCards().get(i), g);
+        }*/
         cardDrawer.DrawCard(20+(cardDrawer.CARD_WIDTH+10)*0, 20, new Card(Deck.SUIT.CLOTHES, Deck.VALUE.FOUR),g);
         cardDrawer.DrawCard(20+(cardDrawer.CARD_WIDTH+10)*1, 20, new Card(Deck.SUIT.DIAMONDS, Deck.VALUE.ACE),g);
         cardDrawer.DrawCard(20+(cardDrawer.CARD_WIDTH+10)*2, 20, new Card(Deck.SUIT.HEARTS, Deck.VALUE.JACK),g);

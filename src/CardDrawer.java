@@ -58,6 +58,7 @@ public class CardDrawer {
 		TexturedPanel tp = new TexturedPanel(true, "/images/texture.jpg", 800, 600);
 		CardPanel panel2 = new CardPanel();
 		tp.panel.add(panel2);
+        MoneyMaker moneyMaker = new MoneyMaker();
 	}
 	
 }
