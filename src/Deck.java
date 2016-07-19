@@ -5,7 +5,7 @@ import java.lang.*;
 public class Deck {
 
     public enum SUIT {HEARTS, DIAMONDS, CLOTHES, SPADES};
-    public enum VALUE {ZERO,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,TEN,JACK,QUEEN,KING,ACE};
+    public enum VALUE {TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,TEN,JACK,QUEEN,KING,ACE};
     private Stack <Card> shuffledDeck;
     public static ArrayList<Card> sorted = create();
 

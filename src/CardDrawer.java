@@ -41,7 +41,9 @@ public class CardDrawer {
         } else {
             g.setColor(Color.red);
         }
-		g.drawString(valueSymbols[card.VALUE.ordinal()], x+5, y+15);
+        System.out.println("card.value.ordinal: " + card.VALUE.ordinal());
+        System.out.println("x: " + x + " y: " + y);
+        g.drawString(valueSymbols[card.VALUE.ordinal()], x+5, y+15);
 		g.drawString(valueSymbols[card.VALUE.ordinal()], x+CARD_WIDTH-12, y+CARD_HEIGHT-5);
 		Font font = new Font(g.getFont().getFontName(), g.getFont().getStyle(), FONT_SIZE);
 		g.setFont(font);
