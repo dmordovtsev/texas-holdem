@@ -1,24 +1,28 @@
-import java.util.*;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+import java.util.ArrayList;
 
 public class DeckTest {
-
-    public static boolean uniquenessTest() {
+    @Test
+    public void getNext() {
         Deck d = new Deck();
         d.shuffle();
         ArrayList <Card> lst = new ArrayList<>();
         Card c = new Card();
         for (int i = 0; i < 52; i++){
             c = d.getNext();
-            if (c != null){
-                for (int j = 0; j < lst.size(); j++){
-                    if ((lst.get(j).suit==c.suit) && (lst.get(j).value==c.value)) return false;
-                }
-                lst.add(c);
-            } else return false;
+            assertNotNull("test fails",c);
+
+            for (int j = 0; j < lst.size(); j++){
+                assertFalse("test fails",((lst.get(j).suit==c.suit) && (lst.get(j).value==c.value)));
+            }
+            lst.add(c);
         }
-        return true;
     }
-    public static boolean randomnessTest(){
+
+    @Test
+    public void shuffle()  {
         ArrayList <Card> lst1 = new ArrayList<>();
         ArrayList <Card> lst2 = new ArrayList<>();
         Deck d = new Deck();
@@ -37,7 +41,8 @@ public class DeckTest {
             }
 
         }
-        if (equalities < 52) return true;
-        else return false;
+        assertTrue ("test fails",(equalities < 52));
     }
+
+
 }
