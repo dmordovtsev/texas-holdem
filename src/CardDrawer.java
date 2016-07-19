@@ -54,11 +54,11 @@ public class CardDrawer {
 		
 	}
 	
-	public static void main(String[] args) throws IOException {
+	/*public static void main(String[] args) throws IOException {
 		TexturedPanel tp = new TexturedPanel(true, "/images/texture.jpg", 800, 600);
 		CardPanel panel2 = new CardPanel();
 		tp.panel.add(panel2);
         MoneyMaker moneyMaker = new MoneyMaker();
 	}
-	
+	*/
 }

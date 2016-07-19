@@ -8,7 +8,7 @@ public class Card {
 	{
 		this.SUIT = SUIT;
 		this.VALUE = VALUE;
-		System.out.println("SUIT: " + SUIT + " VALUE: " + VALUE);
+		//System.out.println("SUIT: " + SUIT + " VALUE: " + VALUE);
 	}
 	
 	public Card() { }
