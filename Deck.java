@@ -1,14 +1,14 @@
+/**
+ * Created by Obsidian-destroyer on 7/18/2016.
+ */
+
 
 import java.util.*;
 import java.lang.*;
 
 public class Deck {
 
-    public enum Suit {HEARTS, DIAMONDS, CLOTHES, SPADES};
-    public enum Value {ZERO,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,TEN,JACK,QUEEN,KING,ACE};
-    private Stack <Card> shuffledDeck;
-    public static ArrayList<Card> sorted = create();
-
+    Stack <Card> shuffledDeck;
     public Deck()
     {
         shuffledDeck=new Stack<Card>();
@@ -25,9 +25,13 @@ public class Deck {
 
 
     public void shuffle(){
-        ArrayList<Card> sortedDeck = new ArrayList<Card>();
-        for (int i = 0; i < 52; i++) {
-            sortedDeck.add(sorted.get(i));
+        ArrayList<Card> sortedDeck=new ArrayList();
+
+
+        for(int i=Card.Value.TWO.ordinal();i<=Card.Value.ACE.ordinal();i++){
+            for(int j=Card.Suit.HEARTS.ordinal();j<=Card.Suit.SPADES.ordinal();j++){
+                sortedDeck.add(new Card(Card.Value.values()[i],Card.Suit.values()[j]));
+            }
         }
 
         int r;
@@ -38,16 +42,8 @@ public class Deck {
             shuffledDeck.push(sortedDeck.get(r));
             sortedDeck.remove(r);
         }
-
-    }
-    public static  ArrayList<Card> create () {
-        ArrayList<Card> created=new ArrayList();
-        for(int i=Value.TWO.ordinal();i<=Value.ACE.ordinal();i++){
-            for(int j=Suit.HEARTS.ordinal();j<=Suit.SPADES.ordinal();j++){
-                created.add(new Card(Value.values()[i],Suit.values()[j]));
-            }
-        }
-
-        return created;
+        //shuffledDeck is what we need
     }
 }
+
+
