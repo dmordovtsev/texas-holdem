@@ -1,21 +1,22 @@
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.io.File;
 import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 
 public class CardDrawer {
 
-	//public enum Suit {HEART, DIAMOND, SPADE, CLUB}; 
-	//public enum Value {TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,TEN,J,D,K,T};
-	
 	public final int CARD_WIDTH = 63;
 	public final int CARD_HEIGHT = 88;
 	private final int CARD_ROUND = 7;
 	private final int FONT_SIZE = 40;
 	private final int DELTA = (int) (FONT_SIZE / 2.5);
 	
-	private final String[] valueSymbols = {"1","2","3","4","5","6","7","8","9","10","J","Q","K","A"};
+	private final String[] valueSymbols = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
 	private final char[] suitSymbols = {'♣', '♦', '♠', '♥'};
 	
 	Graphics graphics;
@@ -25,13 +26,34 @@ public class CardDrawer {
 		this.graphics = g;
 	}
 	
+	public void DrawCardDeck(Deck deck, int x, int y, Graphics g) throws IOException
+	{
+		int dx = 0;
+		int dy = 0;
+		for(int i=0; i<deck.getCardCount(); i=i+6){
+			DrawCardShirt(true, "/images/shirt.png", x+dx, y-dy, g);
+			dx+=1;
+			if( i % 18 == 0) dy+=1;
+		}
+	}
+	
+	public void DrawCardShirt(boolean relativePath, String imagePath, int x, int y, Graphics g) throws IOException
+	{
+		String path = "";
+		if(relativePath)
+		{
+			path = new File(".").getCanonicalPath();
+		}
+		Image cardShirt = ImageIO.read(new File(path + imagePath));
+		g.drawImage(cardShirt, x, y, CARD_WIDTH, CARD_HEIGHT, null);
+	}
+	
 	public void DrawCard(int x, int y, Card card, Graphics g)
 	{
 		Font fontBuffer = g.getFont();
 		//drawing card fill
 		g.setColor(Color.white);
 		g.fillRoundRect(x, y, CARD_WIDTH, CARD_HEIGHT, CARD_ROUND, CARD_ROUND);
-		System.out.println("Round rect is fill");
 		//drawing card outline
 		g.setColor(Color.black);
 		g.drawRoundRect(x, y, CARD_WIDTH, CARD_HEIGHT, CARD_ROUND, CARD_ROUND);
@@ -48,17 +70,7 @@ public class CardDrawer {
 		Font font = new Font(g.getFont().getFontName(), g.getFont().getStyle(), FONT_SIZE);
 		g.setFont(font);
 		g.drawString(String.valueOf(suitSymbols[card.SUIT.ordinal()]),x + CARD_WIDTH / 2 - DELTA, y  + CARD_HEIGHT / 2 + DELTA);
-
 		//putting font back
 		g.setFont(fontBuffer);
-		
 	}
-	
-	/*public static void main(String[] args) throws IOException {
-		TexturedPanel tp = new TexturedPanel(true, "/images/texture.jpg", 800, 600);
-		CardPanel panel2 = new CardPanel();
-		tp.panel.add(panel2);
-        MoneyMaker moneyMaker = new MoneyMaker();
-	}
-	*/
 }

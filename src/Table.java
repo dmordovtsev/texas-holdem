@@ -4,6 +4,7 @@ import java.util.ArrayList;
  * Created by fa1th on 19.07.2016.
  */
 public class Table {
+    enum power {ONE_PAIR, TWO_PAIR, SET, STRAIGH, FLUSH, FULL_HOUSE, QUADS, STRAIGHT_FLUSH, FLUSH_ROYAL}
     ArrayList<Player> players = new ArrayList<>();
     Deck deck = new Deck();
     ArrayList<Card> tableCards = new ArrayList<>();

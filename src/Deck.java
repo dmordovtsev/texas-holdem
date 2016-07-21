@@ -51,4 +51,9 @@ public class Deck {
 
         return created;
     }
+    
+    public int getCardCount()
+    {
+    	return shuffledDeck.size();
+    }
 }

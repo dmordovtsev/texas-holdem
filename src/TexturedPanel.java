@@ -10,7 +10,6 @@ import javax.swing.JPanel;
 public class TexturedPanel {
 	
 	private static Image texture;
-	public JFrame frame;
 	public ImagePanel panel;
 	
 	public TexturedPanel(boolean relativePath, String imagePath, int frameWidth, int frameHeight) throws IOException
@@ -22,13 +21,6 @@ public class TexturedPanel {
 		}
 		texture = ImageIO.read(new File(path + imagePath));
 		panel = new ImagePanel(texture);
-		//
-		frame = new JFrame();
-		//frame.setLayout(new GridLayout(1,3));
-		frame.setSize(frameWidth, frameHeight);
-		frame.add(panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
 	}
 	
 }
